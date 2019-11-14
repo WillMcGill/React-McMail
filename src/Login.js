@@ -27,7 +27,7 @@ class Login extends React.Component {
         this.setState({
             [name]:value
         });
-        console.log(this.state);
+        //console.log(this.state);
     }
 
     handleSubmit(event){
@@ -42,7 +42,8 @@ class Login extends React.Component {
 
                 const tokenData = res.data;
                 //this.props.tokenReturn(res.data.token);
-                console.log(tokenData);
+                console.log(tokenData.token);
+                localStorage.setItem('token' , tokenData.token)
             })
 
             // var data = "email=" + this.state['email'] + "&password=" + this.state['password'];
