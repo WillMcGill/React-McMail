@@ -20,7 +20,10 @@ apiPull(){axios.get('http://127.0.0.1:8000/')
     .then(response => {
       const emailData = response.data;
       console.log(emailData);
-    })}
+    })};
+
+
+
 
 getTokenFromChild(token){
     this.setState({'token': token})
@@ -38,7 +41,12 @@ render () {
 )}
     else{
       return(
-        <div>Here's your data.</div>
+        <div> 
+          <h1>I'm an idiot!</h1>
+            <img src="/IMG_0424.jpg"></img>
+            {this.apiPull}
+          
+          </div>
       );
     }
 
