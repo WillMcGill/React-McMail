@@ -1,11 +1,9 @@
 import React from 'react'
+import axios from 'axios'
 
 class PopulateTable extends React.Component{
     render(){ 
-        let data = JSON.parse(localStorage.getItem(this.props.ListItem))
-
-        return data.map(item => <tr><td id = "itemTitle">{item.title[0]}</td>
-        <td id ="itemDesc">With {item.description[1]} </td><td>${item.price}</td></tr>)
+        
     }
 }
 

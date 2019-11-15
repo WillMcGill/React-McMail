@@ -5,6 +5,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Login from './Login';
+// import CreateTable from './CreateTable.js';
 
 class App extends React.Component {
 
@@ -37,6 +38,7 @@ render () {
   return (
     <div className = "App">
       <Login isLogin = {this.getTokenFromChild} />
+      {/* <CreateTable /> */}
     </div>
 )}
     else{
@@ -44,7 +46,7 @@ render () {
         <div> 
           <h1>I'm an idiot!</h1>
             <img src="/IMG_0424.jpg"></img>
-            {this.apiPull}
+            
           
           </div>
       );
