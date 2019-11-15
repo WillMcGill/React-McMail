@@ -3,7 +3,10 @@ import axios from 'axios'
 
 class PopulateTable extends React.Component{
     render(){ 
-        
+        var config = {
+            headers: {'Authorization' : "bearer" + 
+            localStorage.getItem(token)}
+        }
     }
 }
 
