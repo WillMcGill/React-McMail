@@ -44,6 +44,8 @@ class Login extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
+                    <h1>Will McMail</h1>
+
                     <div className="form-group">
                         <label for="exampleInputEmail1">Email address
                         <input type="email" name = 'email' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.handleChange} />

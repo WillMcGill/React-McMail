@@ -5,54 +5,78 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Login from './Login';
-// import CreateTable from './CreateTable.js';
+import PopulateTable from './CreateTable.js';
 
 class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
+    this.state = {
+      'token': '',
+      'emails': []
+    }
 
-    this.state = { 'token': ''
-   }
-   this.getTokenFromChild = this.getTokenFromChild.bind(this);
+    this.apiPull = this.apiPull.bind(this);
+    this.getTokenFromChild = this.getTokenFromChild.bind(this);
   }
 
-apiPull(){axios.get('http://127.0.0.1:8000/')
-    .then(response => {
-      const emailData = response.data;
-      console.log(emailData);
-    })};
+  apiPull() {
+    // this.state.token
+
+    const config = {
+      headers: {
+        'Authorization': "Bearer " +
+          this.state.token,
+          'crossDomain': true,
+          'Content-Type': 'application/json',
+        },
+        defaults: {
+          'crossDomain': true,
+      }
+    }
+
+    console.log(config);
+
+      axios.get('http://127.0.0.1:8000/api/email', config)
+      .then(res => {
+        const emailData = res.data
+        this.setState({emails: emailData})
+        console.log(this.state)
+      })
 
 
+  };
+
+  getTokenFromChild(token) {
+    this.setState({ 'token': token })
+  }
 
 
-getTokenFromChild(token){
-    this.setState({'token': token})
-    console.log('parent state', this.state.token);
-}
+  render() {
 
-
-render () { 
-  
-  if (this.state.token === ''){
-  return (
-    <div className = "App">
-      <Login isLogin = {this.getTokenFromChild} />
-      {/* <CreateTable /> */}
-    </div>
-)}
-    else{
-      return(
-        <div> 
-          <h1>I'm an idiot!</h1>
-            <img src="/IMG_0424.jpg"></img>
-            
+    if (this.state.token === '' && localStorage.length === 0) {
+      return (
+        <div className="App">
           
-          </div>
+          <Login isLogin={this.getTokenFromChild} />
+
+        </div>
+      )
+    }
+    else {
+      this.apiPull();
+      console.log(this.state)
+      return (
+        <div>
+          <h1>I'm an idiot!</h1>
+          <img src="/IMG_0424.jpg"></img>
+          {this.state.emails ? <PopulateTable dataTable={this.state.emails} /> : <h1>Loading</h1>}
+       
+        </div>
       );
     }
 
-}
+  }
 }
 
 
