@@ -9,18 +9,18 @@ class CreateTable extends React.Component{
 
     
     render(){
-        console.log(this.props.dataTable)
-        const displayData = dataTable.map((email) =>{
-            return(
-                <tr>
-                    <td>{email.data.sender_id}</td>
-                    <td>{email.data.subject}</td>
-                    <td>{email.data.message}</td>
-                </tr>
-            )
-        }
+        // console.log(this.props.dataTable)
+        // const displayData = dataTable.map((email) =>{
+        //     return(
+        //         <tr>
+        //             <td>{email.data.sender_id}</td>
+        //             <td>{email.data.subject}</td>
+        //             <td>{email.data.message}</td>
+        //         </tr>
+        //     )
+        // }
 
-        )
+        // )
 
         return(
             <div>
