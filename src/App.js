@@ -5,7 +5,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Login from './Login';
-import PopulateTable from './CreateTable.js';
+import CreateTable from './CreateTable.js';
 
 class App extends React.Component {
 
@@ -41,7 +41,6 @@ class App extends React.Component {
       .then(res => {
         const emailData = res.data
         this.setState({emails: emailData})
-        console.log(this.state)
       })
 
 
@@ -68,9 +67,9 @@ class App extends React.Component {
       console.log(this.state)
       return (
         <div>
-          <h1>I'm an idiot!</h1>
+          
           <img src="/IMG_0424.jpg"></img>
-          {this.state.emails ? <PopulateTable dataTable={this.state.emails} /> : <h1>Loading</h1>}
+          {this.state.emails ? <CreateTable dataTable={this.state.emails} /> : <h1>Loading</h1>}
        
         </div>
       );
