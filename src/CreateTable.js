@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-class PopulateTable extends React.Component{
+class CreateTable extends React.Component{
 
     constructor(props){
         super(props)
@@ -10,17 +10,17 @@ class PopulateTable extends React.Component{
     
     render(){
         console.log(this.props.dataTable)
-        // const displayData = this.props.dataTable.map((email) =>{
-        //     return(
-        //         <tr>
-        //             <td>{email.data.sender_id}</td>
-        //             <td>{email.data.subject}</td>
-        //             <td>{email.data.message}</td>
-        //         </tr>
-        //     )
-        // }
+        const displayData = dataTable.map((email) =>{
+            return(
+                <tr>
+                    <td>{email.data.sender_id}</td>
+                    <td>{email.data.subject}</td>
+                    <td>{email.data.message}</td>
+                </tr>
+            )
+        }
 
-        // )
+        )
 
         return(
             <div>
@@ -45,4 +45,4 @@ class PopulateTable extends React.Component{
 //     }
 // }
 
-export default PopulateTable;
+export default CreateTable;
